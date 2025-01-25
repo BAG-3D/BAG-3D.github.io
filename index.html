@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>BAG</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Alegreya+SC&family=Lora:wght@400&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+
+
+
+<div class="row pt-1 m-1">
+              
+
+<div class="container" style="text-align:center;">
+
+
+
+  <div class="row mb-2">
+    <div class="col">
+      <p class="full-title">BAG: Body-Aligned 3D Wearable Asset Generation</p>
+    </div>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-center flex-wrap authors-list">
+        <div class="ml-2 mr-2">
+          <a href="./" class="plain-link">Anonymous</a><a class="plain-wo-link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      
+      <div class="d-flex justify-content-center flex-wrap">
+     
+        <div>
+          <a href="./" class="btn-lg big-badge-button ml-2 mr-2 mb-2" role="button">ARXIV</a>
+        </div>
+
+        <div>
+          <a href="./" class="btn-lg big-badge-button ml-2 mr-2 mb-2" role="button">PDF</a>
+        </div>
+  
+        <div>
+          <a href="./" class="btn-lg big-badge-button ml-2 mr-2 mb-2" role="button">CODE</a>
+        </div>
+
+        <!-- <div>
+          <a href="./" class="btn-lg big-badge-button ml-2 mr-2 mb-2" role="button">SLIDES</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <iframe width="1080" height="720" src="https://www.youtube.com/embed/zatju7EfVRA?si=d2NW5E65X9iRBY2j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Abstract</p>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row mb-4">
+    <div class="col">
+					<img src="./teaser.jpg" class="img-fluid drop-shadow" width="100%" alt="big teaser image">
+		</div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="abstract">
+        While recent advancements have shown remarkable progress in general 3D shape generation models, the challenge of leveraging these approaches to automatically generate wearable 3D assets remains unexplored. To this end, we present BAG, a Body-aligned Asset Generation method to output 3D wearable asset that can be automatically dressed on given 3D human bodies. This is achived by controlling the 3D generation process using human body shape and pose information. Specifically, we first build a general single-image to consistent multiview image diffusion model, and train it on the large Objaverse dataset to achieve diversity and generalizability. Then we train a Controlnet to guide the multiview generator to produce body-aligned multiview images. The control signal utilizes the multiview 2D projections of the target human body, where pixel values represent the XYZ coordinates of the body surface in a canonical space. The body-conditioned multiview diffusion generates body-aligned multiview images, which are then fed into a native 3D diffusion model to produce the 3D shape of the asset. Finally, by recovering the similarity transformation using multiview silhouette supervision and addressing asset-body penetration with physics simulators, the 3D asset can be accurately fitted onto the target human body. Experimental results demonstrate significant advantages over existing methods in terms of image prompt-following capability, shape diversity, and shape quality.
+      </p>
+    </div>
+  </div>
+
+  <!-- <div class="row content-header">
+    <div class="col pr-0">
+    <p>pi</p>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col">
+      <p class="abstract">
+      
+      </p>
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./gallery.mp4" type="video/mp4" src="./gallery.mp4">
+      </video>
+    </div>
+  </div> -->
+
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Overview</p>
+    </div>
+  </div>
+  <br/>
+      
+  <div class="row mb-4">
+    <div class="col">
+				<img src="./pipeline.jpg" class="img-fluid drop-shadow" width="100%" alt="image">
+		</div>
+  </div>
+  <div class="row">
+      <p class="abstract"><b>The pipeline of our proposed method: </b>As seen in the left figure, given an input image and a target body, we employ body-conditioned image generation to produce body-aligned consistent four-view orthographic images. The four-view images are then fed into a native 3D diffusion model to obtain the asset shape.The similarity transformation (Sim3) of the generated asset is estimated through silhouette-based projection optimization. Finally, after solving the body-asset penetration, the Sim3-transformed asset is fitted onto the human body. As seen in the right figure, there are four methods to acqure input body and image pairs. (a) SMPLX Fitting. (b)Sketch-Based Modeling. (c) Virtual Try-on. (d) Manual Images Assembly.</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./sim3.mp4" type="video/mp4" src="./sim3.mp4">
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <p class="abstract"><b>Sim(3) Estimation: </b>Due to the non-deterministic nature of the diffusion model, the shape generator cannot guarantee that the output shape will align with the input multi-view images. This misalignment can manifest as differences in scale, translation, and rotation. To address this issue, we apply the Similarity Transformation Estimation.</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./penetration.mp4" type="video/mp4" src="./penetration.mp4">
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <p class="abstract"><b>Asset-Body Penetration Handling: </b>The Sim(3)-transformed asset can roughly align with the body, but small penetrations between the asset and body still exist. To address this issue, we further resolve such penetrations using a physics simulation-based solver.</p>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Result Gallery</p>
+    </div>
+  </div>
+  <br/>
+  <div class="row mb-4">
+    <div class="col">
+				<img src="./result_gallery.jpg" class="img-fluid drop-shadow" width="100%" alt="image">
+		</div>
+  </div>
+  <div class="row">
+    <p class="abstract"><b>Result gallery across four settings: </b>(a) Single-view reconstruction with fitted SMPLX; (b) Image-Based Virtual Try-On; (c) Assembling existing 2D assets; and (d) Sketch-Based modeling. Each image is followed by the reconstructed asset mesh. Our method demonstrates proficiency in effectively producing body-aligned asset shapes and faithfully capturing high-fidelity geometric details from the input.</p>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Comparison with Baseline</p>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row mb-4">
+    <div class="col">
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./compare1.mp4" type="video/mp4" src="./compare1.mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./compare2.mp4" type="video/mp4" src="./compare2.mp4">
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <p class="abstract">As observed, BCNet, ClothWild and SewFormer fail to generate results that align with the input image. This limitation stems from their sole reliance on garment parametric models (whether explicit, implicit, or based on sewing patterns). The limited representational capacity of these parametric models hinders their ability to recover aligned garment shapes that accurately follows the input images. Although Frankenstein employs a more effective 3D triplane representation, its stringent requirements for training data make it difficult to scale up. The limited availability of data results in inadequate generalization capabilities of the trained model, hindering its ability to effectively reconstruct complex garments from images. By harnessing the advanced generalization capabilities of large 3D models, Garment3DGen can reconstruct relatively aligned 3D shapes from images. However, due to the lack of prior knowledge about body shapes, the generated 3D garments are challenging to fit onto the human body, which necessitates labor-intensive and time-consuming manual post-processing to achieve body-garment alignment. Furthermore, its template-fitting method restricts topological flexibility, obstructing the recovery of complex structures and fine-grained geometric details. Our method demonstrates proficiency in effectively producing body-aligned garment shapes and faithfully capturing high-fidelity geometric details from single-view images.</p>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Ablation Study of Body-aligned Multi-View Generation</p>
+    </div>
+  </div>
+  <br/>
+  <div class="row mb-4">
+    <div class="col">
+				<img src="./ablation_body_condition.jpg" class="img-fluid drop-shadow" width="100%" alt="image">
+		</div>
+  </div>
+  <div class="row">
+    <p class="abstract">As observed, both the single-view and body-agnostic multi-view approaches result in body-garment misalignment. The lack of depth information in the single-view to 3D asset method often leads to discrepancies in depth between the body and the asset. The absence of body conditioning in the original multi-view generation yields multi-view images that misalign with the corresponding 2D body renderings, causing noticeable offsets between the generated multi-view images and the body renderings. In contrast, our body-aligned multi-view image generation guarantees precise alignment of assets with the human body across multiple perspectives, ensuring that the final generated 3D assets are consistently aligned with the 3D body.</p>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Ablation Study of Alignment Strategy</p>
+    </div>
+  </div>
+  <br/>
+  <div class="row mb-4">
+    <div class="col">
+				<img src="./alignment.jpg" class="img-fluid drop-shadow" width="100%" alt="image">
+		</div>
+  </div>
+  <div class="row">
+    <p class="abstract">Qualitative comparison between ours and the ablated alignement strategies. As shown, while the generated multi-view images align with the rendered body from various 2D perspectives (b), the generated 3D assets do not effectively guarantee alignment with the input images (c). This discrepancy stems from different techniques and normalization strategies used in multiview-to-3D diffusion models. By employing $\Sim(3)$ optimization, the 3D mesh aligns with the human body (d), though some penetrations remain. Our penetration-handling approach, as illustrated in (e), achieves a penetration-free state for the asset and the body.</p>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Application: Asset Retargeting</p>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row mb-4">
+    <div class="col">
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./retarget.mp4" type="video/mp4" src="./retarget.mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="row content-header">
+    <div class="col pr-0">
+    <p>Application: Animation</p>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row mb-4">
+    <div class="col">
+      <video width="100%" autoplay loop playsinline muted>
+        <source data-src="./animation.mp4" type="video/mp4" src="./animation.mp4">
+      </video>
+    </div>
+  </div>
+    
+    
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+    
+  <footer>
+
+
+<div class="row">
+<div class="col-12">
+<br>
+<br>
+<br>
+<br>
+</div>
+</div>
+
+
+</footer>
+
+
+</html>
